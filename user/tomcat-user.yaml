@@ -14,7 +14,7 @@ spec:
         app: user-was
     spec:
       containers:
-      - image: 992382600671.dkr.ecr.ap-northeast-2.amazonaws.com/user-was:v1.1
+      - image: 992382600671.dkr.ecr.ap-northeast-2.amazonaws.com/user-was:v1.3
         name: user-was
         ports:
         - containerPort: 8080
