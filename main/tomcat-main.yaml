@@ -14,10 +14,25 @@ spec:
         app: main-was
     spec:
       containers:
-      - image: 992382600671.dkr.ecr.ap-northeast-2.amazonaws.com/main-was:v1.0
+      - image: 992382600671.dkr.ecr.ap-northeast-2.amazonaws.com/main-was:v1.1
         name: main-was
         ports:
         - containerPort: 8080
+        env:
+        - name: NODE_IP
+          valueFrom: {fieldRef: {fieldPath: status.hostIP}}
+        - name: NODE_NAME
+          valueFrom: {fieldRef: {fieldPath: spec.nodeName}}
+        - name: POD_NAME
+          valueFrom: {fieldRef: {fieldPath: metadata.name}}
+        - name: OKIND
+          value: main-was
+        - name: license
+          value: x604guk811s9o-z5dpkhsvjkrd34-x5pse8eqqhmooo
+        - name: whatap_server_host
+          value: 13.124.11.223/13.209.172.35
+        - name: whatap_micro_enabled
+          value: "true"
         resources:
           requests:
             cpu: 10m
